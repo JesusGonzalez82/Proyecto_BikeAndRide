@@ -1,0 +1,90 @@
+body{
+    margin: 0;
+    font-family: sans-serif
+}
+
+.nav{
+    background-color: #48e;
+    display: flex;               
+    justify-content: center;     
+    align-items: center;         
+    padding: 10px;
+    box-shadow: 0 1px #0009;
+}
+
+/* .a__link{
+    background-color: red;
+    color: white;
+    display: block;
+    border: 1px solid black;
+    margin: 20px;
+    padding: 20px;
+} */
+.fav__icon {
+    width: 80px;  /* Ajusta el tamaño según necesites */
+    height: 80px;
+    border-radius: 50%; /* Hace que el div sea redondo */
+    overflow: hidden; /* Asegura que la imagen no sobresalga */
+    display: flex; 
+    align-items: left;
+    justify-content: center;
+    margin-right: auto;
+
+}
+
+.fav__icon img {
+    width: 100%;  /* Ajusta la imagen al tamaño del div */
+    height: 100%;
+    object-fit: cover; /* Recorta la imagen si es necesario para ajustarse */
+}
+
+.nav__title{
+    margin: auto;
+    font-size: 80px;
+    letter-spacing: 4px;
+    font-family: 'Fira Code';
+}
+.title--span{
+    color: goldenrod;
+    text-shadow: 0 0 5px #0006;
+    font-family: 'JetBrains Mono', monospace;
+
+}
+
+.nav__list{
+    margin: 0;
+    text-align: center;
+}
+.nav__item{
+    display: inline-block;
+    
+}
+
+.nav__link{
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px;
+    background-color: #48e;
+    
+}
+
+.nav__link:hover{
+    background-color: #59e;
+}
+
+.link--button{
+    border: 1px solid white;
+    background-color: #fff;
+    padding: 6px 12px;
+    color: #48e;
+    border-radius: 5px;
+    margin-left:0px ;
+    /* display: none; */
+}
+
+.link--button:hover{
+    background: transparent;
+    color: #fff;
+}
+

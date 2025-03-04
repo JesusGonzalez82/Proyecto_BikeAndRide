@@ -1,0 +1,24 @@
+body{
+    margin: 0;
+    font-family: sans-serif;
+    height: 100vh;
+}
+
+.login__form{
+    height: 15vh;
+    width: 15vh;
+    /* border: 1px solid #0009; */
+    margin: auto;
+    padding: 10%
+}
+
+input{
+    margin: 5px;
+    padding: 6px 9px;
+    border: none;
+    border-top: 1px solid #48e;
+    border-bottom: 1px solid #48e;
+    background: transparent;
+    color: #48e;
+    border-radius: 5px;
+}
