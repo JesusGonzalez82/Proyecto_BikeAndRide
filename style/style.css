@@ -41,14 +41,14 @@ body{
 .nav__title{
     margin: auto;
     font-size: 80px;
-    letter-spacing: 4px;
+    /* letter-spacing: 2px; */
     font-family: 'Fira Code';
+    text-align: center;
 }
 .title--span{
     color: goldenrod;
     text-shadow: 0 0 5px #0006;
     font-family: 'JetBrains Mono', monospace;
-
 }
 
 .nav__list{
@@ -57,6 +57,7 @@ body{
 }
 .nav__item{
     display: inline-block;
+    display: none;
     
 }
 
