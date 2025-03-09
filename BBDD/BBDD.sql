@@ -224,5 +224,13 @@ INSERT INTO Comentarios (comentario, fecha, id_usuario, id_actividad) VALUES
 ("Un recorrido largo pero satisfactorio", '2023-03-15', 14, 18),
 ("Muy variada y divertida, me encantó", '2024-01-05', 15, 19);
 
+ALTER TABLE imagenes
+ADD COLUMN id_ruta INT NULL,
+ADD COLUMN id_actividad INT NULL,
+ADD FOREIGN KEY (id_ruta) REFERENCES Rutas(id_ruta) ON DELETE CASCADE,
+ADD FOREIGN KEY (id_actividad) REFERENCES Actividades(id_actividad) ON DELETE CASCADE;
+
+ALTER TABLE Imagenes
+MODIFY COLUMN tipo ENUM('usuario','bicicleta','ruta', 'actividad') NOT null;
 
 

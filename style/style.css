@@ -6,9 +6,9 @@ body{
 .nav{
     background-color: #48e;
     display: flex;               
-    justify-content: center;     
+    justify-content: space-between;     
     align-items: center;         
-    padding: 10px;
+    padding: 10px 20px;
     box-shadow: 0 1px #0009;
 }
 
@@ -21,29 +21,31 @@ body{
     padding: 20px;
 } */
 .fav__icon {
-    width: 80px;  /* Ajusta el tamaño según necesites */
-    height: 80px;
-    border-radius: 50%; /* Hace que el div sea redondo */
-    overflow: hidden; /* Asegura que la imagen no sobresalga */
+    width: 60px;  
+    height: 60px;
+    border-radius: 50%;
+    overflow: hidden; 
     display: flex; 
-    align-items: left;
+    align-items: center;
     justify-content: center;
-    margin-right: auto;
+    margin-right: 20px;
 
 }
 
 .fav__icon img {
-    width: 100%;  /* Ajusta la imagen al tamaño del div */
+    width: 100%;  
     height: 100%;
-    object-fit: cover; /* Recorta la imagen si es necesario para ajustarse */
+    object-fit: cover; 
 }
 
-.nav__title{
-    margin: auto;
-    font-size: 80px;
-    /* letter-spacing: 2px; */
+.nav__title {
+    margin: 0;
+    font-size: 60px;
     font-family: 'Fira Code';
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Alinea el título verticalmente */
 }
 .title--span{
     color: goldenrod;
@@ -52,12 +54,14 @@ body{
 }
 
 .nav__list{
+    list-style: none;
     margin: 0;
-    text-align: center;
+    padding: 0;
+    display: flex;
 }
 .nav__item{
-    display: inline-block;
-    display: none;
+    margin-left: 15px;
+    /* display: none; */
     
 }
 
@@ -65,13 +69,15 @@ body{
     color: #fff;
     text-decoration: none;
     display: inline-block;
-    padding: 10px;
+    padding: 8px 16px;
     background-color: #48e;
+    font-size: 16px;
     
 }
 
 .nav__link:hover{
     background-color: #59e;
+    border-radius: 5px;
 }
 
 .link--button{
@@ -80,7 +86,7 @@ body{
     padding: 6px 12px;
     color: #48e;
     border-radius: 5px;
-    margin-left:0px ;
+    margin-left:20px ;
     /* display: none; */
 }
 

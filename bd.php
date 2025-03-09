@@ -2,6 +2,7 @@
 
 // Servicio de login. Recibe dos parametros y devuelve un objeto (status, id)
 function login (){
+    
 
 }
 // Servicio de Añadir usuarios. Recibe un objeto usuario (true o false)
