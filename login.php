@@ -26,6 +26,7 @@
         <input value="<?php if(isset($usuario)) echo $usuario ?>" id="usuario" name="usuario" type="text">
         <label for="clave">Password</label>
         <input type="password" name="clave" id="clave">
+        <br>
         <input type="submit">
     </form>
     </div>
