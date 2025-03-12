@@ -13,7 +13,7 @@ div, header, nav, ul, h1, h2, p, img{
 header{
     min-height: 100vh;
     box-sizing: border-box;
-    background-image: url('images.jpg');
+    background-image: url('/Proyecto/src/images.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     display: flex;
@@ -115,4 +115,3 @@ h1{
 .nav__logo{
     width: 60px;
 }
-
