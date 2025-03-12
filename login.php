@@ -28,6 +28,7 @@
         <input type="password" name="clave" id="clave">
         <br>
         <input type="submit">
+        <br>
     </form>
     </div>
 </body>
