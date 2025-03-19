@@ -1,11 +1,12 @@
--- Configuración inicial
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+ET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = '+01:00';
 
--- Creamos la BBDD si no existe
-CREATE DATABASE BikeRide CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+CREATE DATABASE IF NOT EXISTS BikeRide
+CHARACTER SET utf8mb4
+COLLATE utf8mb4_general_ci;
 USE BikeRide;
+
 
 -- Tabla de Usuarios
 CREATE TABLE Usuarios (
@@ -60,21 +61,20 @@ CREATE TABLE Rutas (
 );
 
 -- Tabla de Actividades (registro de recorridos realizados)
-CREATE TABLE Actividades (
+CREATE TABLE IF NOT EXISTS Actividades (
     id_actividad INT AUTO_INCREMENT PRIMARY KEY,
-    fecha DATE NOT NULL DEFAULT CURRENT_DATE,
-    duracion TIME NOT NULL DEFAULT '00:00:00',
+    fecha DATE NOT NULL,
+    duracion TIME NOT NULL,
     velocidad_media DECIMAL(5,2) NOT NULL,
     velocidad_max DECIMAL(5,2) NOT NULL,
     calorias DECIMAL(7,2),
     id_usuario INT,
     id_bici INT,
     id_ruta INT,
-    CONSTRAINT fk_actividades_usuario FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario) ON DELETE SET NULL,
-    CONSTRAINT fk_actividades_bici FOREIGN KEY (id_bici) REFERENCES Bicicletas(id_bici) ON DELETE SET NULL,
-    CONSTRAINT fk_actividades_ruta FOREIGN KEY (id_ruta) REFERENCES Rutas(id_ruta) ON DELETE SET NULL
+    CONSTRAINT fk_actividades_usuario FOREIGN KEY (id_usuario) REFERENCES Usuarios(Id) ON DELETE SET NULL,
+    CONSTRAINT fk_actividades_bici FOREIGN KEY (id_bici) REFERENCES Bicicletas(ID_bici) ON DELETE SET NULL,
+    CONSTRAINT fk_actividades_ruta FOREIGN KEY (id_ruta) REFERENCES Rutas(Id_ruta) ON DELETE SET NULL
 );
-
 -- Tabla de Comentarios
 CREATE TABLE Comentarios (
     id_comentario INT AUTO_INCREMENT PRIMARY KEY,
@@ -123,7 +123,6 @@ insert into Comentarios (comentario, fecha, id_usuario, id_actividad) values
 ("Si realmente quieres sentir el ciclismo en Madrid tienes que hacer esta ruta, imprescindible", '2021-05-29', 1, 4);
 
 INSERT INTO Usuarios (nombre, password, fecha_nac, status) VALUES
-("Jesus Gonzalez Blanco", "changeme", "1982-03-09", "activo"),
 ("Ana Maria Gonzalez", "password123", "1990-05-12", "activo"),
 ("Carlos Lopez", "12345", "1985-07-25", "activo"),
 ("Laura Fernandez", "pass1234", "1992-01-18", "activo"),
@@ -140,8 +139,6 @@ INSERT INTO Usuarios (nombre, password, fecha_nac, status) VALUES
 ("Cristina Sanchez", "crissan88", "1990-04-16", "activo");
 
 INSERT INTO Emails (email, id_usuario) VALUES
-("chuso1982@gmail.com", 1),
-("jesusgonzalezblanco82@outlook.com", 1),
 ("anamg@example.com", 2),
 ("carloslopez@example.com", 3),
 ("laura_fer@example.com", 4),
@@ -232,5 +229,3 @@ ADD FOREIGN KEY (id_actividad) REFERENCES Actividades(id_actividad) ON DELETE CA
 
 ALTER TABLE Imagenes
 MODIFY COLUMN tipo ENUM('usuario','bicicleta','ruta', 'actividad') NOT null;
-
-
