@@ -1,4 +1,4 @@
-ET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
 SET time_zone = '+01:00';
 
@@ -71,9 +71,9 @@ CREATE TABLE IF NOT EXISTS Actividades (
     id_usuario INT,
     id_bici INT,
     id_ruta INT,
-    CONSTRAINT fk_actividades_usuario FOREIGN KEY (id_usuario) REFERENCES Usuarios(Id) ON DELETE SET NULL,
-    CONSTRAINT fk_actividades_bici FOREIGN KEY (id_bici) REFERENCES Bicicletas(ID_bici) ON DELETE SET NULL,
-    CONSTRAINT fk_actividades_ruta FOREIGN KEY (id_ruta) REFERENCES Rutas(Id_ruta) ON DELETE SET NULL
+    CONSTRAINT fk_actividades_usuario FOREIGN KEY (id_usuario) REFERENCES Usuarios(id_usuario) ON DELETE SET NULL,
+	CONSTRAINT fk_actividades_bici FOREIGN KEY (id_bici) REFERENCES Bicicletas(id_bici) ON DELETE SET NULL,
+	CONSTRAINT fk_actividades_ruta FOREIGN KEY (id_ruta) REFERENCES Rutas(id_ruta) ON DELETE SET NULL
 );
 -- Tabla de Comentarios
 CREATE TABLE Comentarios (
@@ -89,7 +89,7 @@ CREATE TABLE Comentarios (
 insert into Usuarios (nombre, password, fecha_nac, status)
 values(
 "Jesus Gonzalez Blanco",
-"changeme",
+"$2y$10$WylK6tNZNqnBHAya02ReOuAtNnio9bmHyEyLrJlA.A2Ckgie57Q7m", --changeme
 "1982-03-09",
 "activo"
 );
@@ -102,7 +102,8 @@ insert into Bicicletas (tipo_bici, marca, modelo, anio, peso, material, status, 
 ("road", "Orbea", "Orca M20 iTeam", 2022, 7.98, "carbono", "en uso", 1),
 ("mtb", "Orbea", "Alma H20", 2018, 13.50, "aluminio", "en uso", 1),
 ("gravel", "Cube", "Analog", 2014, 10.90, "aluminio", "vendida", 1),
-("road", "Specialized", "Tarmcac", 2010, 6.90, "Carbono", "en uso", 1);
+("road", "Specialized", "Tarmcac", 2010, 6.90, "Carbono", "vendida", 1);
+("mtb", "Megamo", "Track 04 cw", 2025, 11.80, "carbono", "en uso", 1);
 
 insert into Rutas(nombre_ruta, distancia, desnivel, tipo_terreno, descripcion_ruta) values
 ("Triple Corona", 87.45, 1888, "asfalto", "Ruta de alta montaña por la sierra de Madrid en la que ascendemos los puertos de la Morcuera, Navafria y Canencia"),
@@ -118,25 +119,26 @@ insert into Actividades(fecha, duracion, velocidad_media, velocidad_max, caloria
 ('2024-10-10', '04:19:40', 20.02, 67.3, 1977, 1, 1, 1);
 
 insert into Comentarios (comentario, fecha, id_usuario, id_actividad) values
-("Ruta muy dura, solo para usuarios expertos", '24-10-10', 1, 5),
+("Ruta muy dura, solo para usuarios expertos", '2024-10-10', 1, 5),
 ("Espectaculares vistas de la Sierra Norte de Madrid", '2019-05-02', 1, 2),
 ("Si realmente quieres sentir el ciclismo en Madrid tienes que hacer esta ruta, imprescindible", '2021-05-29', 1, 4);
 
+-- Los comentarios son las pass en texto plano
 INSERT INTO Usuarios (nombre, password, fecha_nac, status) VALUES
-("Ana Maria Gonzalez", "password123", "1990-05-12", "activo"),
-("Carlos Lopez", "12345", "1985-07-25", "activo"),
-("Laura Fernandez", "pass1234", "1992-01-18", "activo"),
-("Pedro Sanchez", "pedsan456", "1988-09-30", "activo"),
-("David Romero", "davrom789", "1995-11-03", "activo"),
-("Sofia Perez", "sofperez01", "1994-02-20", "activo"),
-("Manuel Garcia", "manguar202", "1983-08-14", "activo"),
-("Lucia Martinez", "lucmar03", "1991-04-11", "activo"),
-("Miguel Torres", "miguel78", "1987-10-23", "activo"),
-("Alba Rodriguez", "albarod567", "1986-06-05", "activo"),
-("Javier Fernandez", "javi87", "1990-12-14", "activo"),
-("Raquel Lopez", "raquellop", "1993-03-22", "activo"),
-("Luis Gonzalez", "luisgonz23", "1992-09-29", "activo"),
-("Cristina Sanchez", "crissan88", "1990-04-16", "activo");
+("Ana Maria Gonzalez", "$2y$10$EnbOHfoIkpwDm2EYnLpAGeZZoeLtWWw.gEwZ7WMUoZVj3vDeuPqaa", "1990-05-12", "activo"), --password123
+("Carlos Lopez", "$2y$10$/QH8ygp4lgsszzuSivHUc.FOzqRReZcsjhDzE27F34aaiOmwwRi0m", "1985-07-25", "activo"), --12345
+("Laura Fernandez", "$2y$10$lVNJzFykw8vzIbA4EHatIOgF1KKr35vSg3/bVLTV1l9N5J2ntB5o2", "1992-01-18", "activo"), -- pass1234
+("Pedro Sanchez", "$2y$10$UGBeHmR/65XrdI6OYLE2iOlImk8a4pOXLOJiOmaxWb7CDJYucLsH6", "1988-09-30", "activo"), -- pedsan456
+("David Romero", "$2y$10$IRw3wPwrOXKKatE73ADhPuJSZ6I9VlBRlkHsHqyFTiF8Q.Bd9tRHy", "1995-11-03", "activo"), --davrom789
+("Sofia Perez", "$2y$10$7K4S6yTeRi5Nzb4cJ8HWa.QFGuYMVVXD8f4P45.vug9vWAAAHba5y", "1994-02-20", "activo"), --sofperez01
+("Manuel Garcia", "$2y$10$mVWlDrMztEGPaOA44Y8wv.mQmMWvo9F47S/lDIK55hd.EOKw2w0jK", "1983-08-14", "activo"), --manguar202
+("Lucia Martinez", "$2y$10$o3U.mbsqKYtRpOGWgcCD4u6DvXGDRIv1vLa2EBTljNlI3STmGZ0G2", "1991-04-11", "activo"), --lucmar03
+("Miguel Torres", "$2y$10$imOZDYt8yVKIhO.5Mtq6fOjEKY0iV57CD665LFG17THDX8RHX65vq", "1987-10-23", "activo"), --miguel78
+("Alba Rodriguez", "$2y$10$DQ8IaeMwbzo3E6u7yESlaOzP6qb34PJpcvZhy3OHgJNUhtEqSULk2", "1986-06-05", "activo"), --albarod567
+("Javier Fernandez", "$2y$10$WBXN7kcNWQCTTMWRdFLjLuSaEijanlypHCjv7.ud5jveYiL/ynxl2", "1990-12-14", "activo"), --javi87
+("Raquel Lopez", "$2y$10$USYYhePcWOhUTzxHIu7WWuTNJSsqnCEveUVJ93gIgdlbIJMoLer.2", "1993-03-22", "activo"), --raquellop
+("Luis Gonzalez", "$2y$10$OQaMqw0JQQa/0iZhKtgtfeW1THuO1VTT/kDuIyOBoxhgsE7iRpKLq", "1992-09-29", "activo"), --luisgonz23
+("Cristina Sanchez", "$2y$10$XOVy3Bdy2Nw5knIs6XOWv.pD3rwyqca52PMPJ2ObbIxC.b.Xbde8.", "1990-04-16", "activo"); --crissan88
 
 INSERT INTO Emails (email, id_usuario) VALUES
 ("anamg@example.com", 2),
